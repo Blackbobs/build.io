@@ -1,9 +1,17 @@
+import { Nav } from "@/components/NavComponents";
+import { AllTeamsDisplay } from "@/components/TeamComponents";
 
 
 export default function Home() {
   return (
     <>
-      <h1>Hello</h1>
+      <div>
+        <Nav/>
+      </div>
+
+      <div>
+        <AllTeamsDisplay/>
+      </div>
     </>
   );
 }
