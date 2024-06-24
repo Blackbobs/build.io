@@ -3,7 +3,7 @@ import { RxAvatar } from "react-icons/rx";
 
 const Nav: React.FC = () => {
   return (
-    <nav className='shadow-lg p-3 flex items-center justify-between z-10'>
+    <nav className='nav shadow-md'>
         <h1 className='logo_gradient text-2xl font-bold'>build.io</h1>
         <div className='flex items-center gap-3'>
         {/* <button className='bg-brand text-white capitalize p-2 rounded font-medium text-xl'>donate</button> */}

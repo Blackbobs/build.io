@@ -25,3 +25,33 @@
   height: 100vh;
   z-index: 100;
 }
+
+.layout{
+  display: flex;
+  flex-direction: row;
+  gap: 2;
+  min-height: calc(100% - 200px);
+}
+
+.nav{
+  position: sticky;
+  width: 100%;
+  height: fit-content;
+  padding: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar{
+  min-width: 250px;
+  min-height: 100dvh;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  background-color: pink;
+}

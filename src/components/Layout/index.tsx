@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { AllTeamsDisplay, TeamRoom } from "../TeamComponents";
 import { Nav } from "../NavComponents";
-import Sidebar from "../Sidebar";
 
 export default function Layout() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -35,9 +34,7 @@ export default function Layout() {
           <Nav/>
         </div>
         <div>
-          <div>
-            <Sidebar />
-          </div>
+        
           <div>
             <TeamRoom />
           </div>

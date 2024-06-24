@@ -34,7 +34,7 @@ const AllTeamsDisplay: React.FC = () => {
 
   return (
     <>
-      <aside className="p-3">
+      <aside className="sidebar">
         <div>
           {Teams.length ? (
             Teams.map((team, i) => (
@@ -42,16 +42,13 @@ const AllTeamsDisplay: React.FC = () => {
                 key={i}
                 className="flex items-center justify-between gap-2 p-2"
               >
-                <div className="w-[60px] h-[60px] rounded-full object-cover bg-gray-300"></div>
+                <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300"></div>
                 <Link href={`/team/${i}`} className="flex-1">
-                  <p className="font-medium text-[20px]">{team.teamName}</p>
+                  <p className="font-medium text-[18px]">{team.teamName}</p>
                   <p className="text-[14px] italic text-gray-500">
                     {team.message.length > 45 ? `${team.message.substring(0, 45)}...` : team.message}
                   </p>
                 </Link>
-                <div>
-                  <small className="font-bold text-2xl">...</small>
-                </div>
               </div>
             ))
           ) : (
@@ -68,7 +65,7 @@ const AllTeamsDisplay: React.FC = () => {
           )}
         </div>
           {/* Create team CTA */}
-        <div className="fixed bottom-10 right-5 bg-brand p-2 rounded-full text-white w-[60px] h-[60px] text-center">
+        <div className="absolute bottom-10 right-5 bg-brand p-2 rounded-full text-white w-[60px] h-[60px] text-center">
           <button onClick={handleOpenModal} className="flex items-center justify-center w-full h-full font-bold">
             <AiOutlineTeam size={40} />
           </button>
