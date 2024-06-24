@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { IoSearch } from "react-icons/io5";
 import { AiOutlineTeam } from "react-icons/ai";
 import CreateTeam from "./CreateTeam";
+import Link from "next/link";
 
 interface Team {
   teamName: string;
@@ -42,12 +43,12 @@ const AllTeamsDisplay: React.FC = () => {
                 className="flex items-center justify-between gap-2 p-2"
               >
                 <div className="w-[60px] h-[60px] rounded-full object-cover bg-gray-300"></div>
-                <div className="flex-1">
+                <Link href={`/team/${i}`} className="flex-1">
                   <p className="font-medium text-[20px]">{team.teamName}</p>
                   <p className="text-[14px] italic text-gray-500">
                     {team.message.length > 45 ? `${team.message.substring(0, 45)}...` : team.message}
                   </p>
-                </div>
+                </Link>
                 <div>
                   <small className="font-bold text-2xl">...</small>
                 </div>
@@ -56,10 +57,10 @@ const AllTeamsDisplay: React.FC = () => {
           ) : (
             <div>
               <p className="text-center text-xl font-medium p-3">
-                No Teams To Display
+                Oops, seems you are new...
               </p>
               <div className="text-center">
-                <button disabled={true} className="bg-brand p-3 rounded text-white font-bold cursor-pointer">
+                <button onClick={handleOpenModal} className="bg-brand p-3 rounded text-white font-bold cursor-pointer">
                   Create a Team
                 </button>
               </div>

@@ -33,7 +33,7 @@ const CreateTeam: React.FC<CreateTeamProps> = ({setIsModalOpen}) => {
                 <textarea id='description' placeholder='Team Description' className=' border border-brand rounded-md w-full my-2 p-2 focus:outline-none' />
             </div>
             <div>
-                <button type="submit" className='flex items-center justify-center gap-3 capitalize font-medium text-[18px] bg-brand p-2 text-white rounded-md w-full my-2'><AiOutlineTeam size={30}/> <span>create team</span></button>
+                <button disabled={true} type="submit" className='flex items-center justify-center gap-3 capitalize font-medium text-[18px] bg-brand p-2 text-white rounded-md w-full my-2'><AiOutlineTeam size={30}/> <span>create team</span></button>
             </div>
             </form>
         </div>
