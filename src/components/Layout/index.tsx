@@ -1,46 +1,22 @@
-"use client";
-import React, { useState, useEffect } from "react";
+
+import React from "react";
 import { AllTeamsDisplay, TeamRoom } from "../TeamComponents";
-import { Nav } from "../NavComponents";
+import { Sidebar } from "../SidebarComponents";
 
 export default function Layout() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const updateWidth = () => {
-      setWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", updateWidth);
-
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
+ 
 
   return (
     <main>
-      {width < 768 ? (
-        <>
-          <div>
-            <Nav />
-          </div>
+        <div className="layout">
+        <div className="w-full md:max-w-[300px]">
+          <Sidebar/>
+        </div>
 
-          <div>
-            <AllTeamsDisplay />
-          </div>
-        </>
-      ) : (
-        <>
-        <div>
-          <Nav/>
+        <div className="hidden md:block flex-1">
+          <TeamRoom/>
         </div>
-        <div>
-        
-          <div>
-            <TeamRoom />
-          </div>
-        </div>
-        </>
-      )}
+      </div>
     </main>
   );
 }

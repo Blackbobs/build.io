@@ -9,7 +9,7 @@ const Nav: React.FC = () => {
         {/* <button className='bg-brand text-white capitalize p-2 rounded font-medium text-xl'>donate</button> */}
         {/* user profile */}
         <button className='text-brand'>
-        <RxAvatar size={40}/>
+        <RxAvatar size={30}/>
         </button>
         </div>
     </nav>

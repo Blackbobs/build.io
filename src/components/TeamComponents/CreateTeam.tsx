@@ -12,7 +12,7 @@ const CreateTeam: React.FC<CreateTeamProps> = ({setIsModalOpen}) => {
     }
   return (
     
-    <article className='w-full h-full max-w-screen-md flex items-center p-2'>
+    <article className='w-full h-full max-w-[500px] flex items-center p-2'>
         <div className='bg-white p-3 rounded-lg h-fit w-full'>
         <div className='flex items-center justify-between p-3'>
             <h1 className='capitalize font-medium text-[22px]'>create a team</h1>

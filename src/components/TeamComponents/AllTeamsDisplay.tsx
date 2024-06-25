@@ -34,7 +34,7 @@ const AllTeamsDisplay: React.FC = () => {
 
   return (
     <>
-      <aside className="sidebar">
+      <section className="w-full">
         <div>
           {Teams.length ? (
             Teams.map((team, i) => (
@@ -43,11 +43,11 @@ const AllTeamsDisplay: React.FC = () => {
                 className="flex items-center justify-between gap-2 p-2"
               >
                 <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300"></div>
-                <Link href={`/team/${i}`} className="flex-1">
+                <Link href={`/team/${i}`} className="flex-1 leading-5">
                   <p className="font-medium text-[18px]">{team.teamName}</p>
-                  <p className="text-[14px] italic text-gray-500">
-                    {team.message.length > 45 ? `${team.message.substring(0, 45)}...` : team.message}
-                  </p>
+                  <small className="italic text-gray-600">
+                    {team.message.length > 35 ? `${team.message.substring(0, 35)}...` : team.message}
+                  </small>
                 </Link>
               </div>
             ))
@@ -65,15 +65,15 @@ const AllTeamsDisplay: React.FC = () => {
           )}
         </div>
           {/* Create team CTA */}
-        <div className="absolute bottom-10 right-5 bg-brand p-2 rounded-full text-white w-[60px] h-[60px] text-center">
+        <div className="absolute bottom-3 right-3 bg-brand p-2 rounded-full text-white w-[50px] h-[50px] text-center">
           <button onClick={handleOpenModal} className="flex items-center justify-center w-full h-full font-bold">
             <AiOutlineTeam size={40} />
           </button>
         </div>
-      </aside>
+      </section>
 
           {/* Create team modal */}
-      <div className={`${isModalOpen ? 'block bg_overlay duration-1000' : 'hidden duration-1000'} `}>
+      <div className={`${isModalOpen ? 'block bg_overlay duration-1000 flex items-center justify-center' : 'hidden duration-1000'} `}>
         <CreateTeam setIsModalOpen={setIsModalOpen} />
       </div>
     </>
