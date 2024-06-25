@@ -10,7 +10,7 @@ export default function Layout({
         <div className="w-full md:max-w-[300px] hidden md:block">
           <Sidebar />
         </div>
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 w-full">{children}</div>
       </div>
   );
 }
