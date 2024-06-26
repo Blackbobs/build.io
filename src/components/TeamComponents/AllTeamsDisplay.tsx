@@ -43,7 +43,7 @@ const AllTeamsDisplay: React.FC = () => {
                 className="flex items-center justify-between gap-2 p-2"
               >
                 <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300"></div>
-                <Link href={`/team/${i}`} className="flex-1 leading-5">
+                <Link href={`/${i}/chat`} className="flex-1 leading-5">
                   <p className="font-medium text-[18px]">{team.teamName}</p>
                   <small className="italic text-gray-600">
                     {team.message.length > 35 ? `${team.message.substring(0, 35)}...` : team.message}

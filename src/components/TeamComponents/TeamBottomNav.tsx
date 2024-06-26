@@ -22,7 +22,7 @@ const TeamBottomNav: React.FC = () => {
     },
   ]
   return (
-    <nav className='flex items-center justify-between w-full sticky md:min-w-full bottom-0 gap-3 border-t-2 border-slate-800 p-2'>
+    <nav className='flex items-center justify-between w-full md:min-w-full bottom-0 gap-3 border-t-2 border-slate-800 p-2'>
         {
           navItems.map((item, i) => (
             <div key={i} className='flex flex-col items-center gap-2 text-secondary'>
