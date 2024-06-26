@@ -23,15 +23,15 @@ const TeamRoom = () => {
   return (
     <>
       <div className="relative top-0 bottom-0 right-0 w-full">
-        <div>
+        {/* <div>
           <TeamTopNav />
-        </div>
+        </div> */}
         <section>
           <h1>TeamRoom</h1>
         </section>
-        <div className="w-full">
+        {/* <div className="w-full relative">
           <TeamBottomNav />
-        </div>
+        </div> */}
       </div>
     </>
   );

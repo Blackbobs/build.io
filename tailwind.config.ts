@@ -13,6 +13,9 @@ const config: Config = {
         primary: "#D3ECF7",
         secondary: "#1D87A4"
       },
+      spacing:{
+        xPadding: "5.17%"
+      }
     },
   },
   plugins: [],

@@ -29,7 +29,7 @@
 .layout{
   display: flex;
   flex-direction: row;
-  width: 100dvw;
+  width: 100vw;
 }
 
 .nav{

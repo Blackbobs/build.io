@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { IoIosCall, IoIosVideocam } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
