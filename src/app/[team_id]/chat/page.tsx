@@ -8,14 +8,8 @@ import {
       <>
         <div className="max-w-full">
           <div>
-            <TeamTopNav />
-          </div>
-          <div>
             <TeamRoom />
-          </div>
-          <div className="fixed bottom-0 right-0 z-10 bg-slate-800 width">
-            <TeamBottomNav />
-          </div>
+          </div>   
         </div>
       </>
     );

@@ -12,8 +12,8 @@ const TeamTopNav = () => {
     <nav className='flex justify-between p-2 border-b-2 border-slate-800'>
       <div className='flex gap-3 flex-1'>
         <button onClick={() => {
-          router.back();
-          console.log('clicked')
+          router.push('/');
+          // console.log('clicked')
         }}>
           <FaArrowLeft size={20}/>
         </button>

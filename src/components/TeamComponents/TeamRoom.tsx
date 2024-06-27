@@ -10,7 +10,7 @@ const NewMember = () => {
   return (
     <>
       {/* <img src={workspace} alt="workspace" className='w-[200px] h-[' /> */}
-      <p className="text-4xl">Start Collaborating</p>
+      <p className="text-3xl">Start Collaborating</p>
     </>
   );
 };
