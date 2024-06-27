@@ -18,7 +18,7 @@ const TeamTopNav = () => {
           <FaArrowLeft size={20}/>
         </button>
         <div className='flex gap-3'>
-        <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300 border-2 border-brand"></div>
+        <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300 border-2 border-slate-800"></div>
         <div className='leading-5'>
         <h3 className="font-medium text-[18px]">BuildBridge</h3>
         <small>Emmy, Segatoo, ...</small>
