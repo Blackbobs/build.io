@@ -1,7 +1,7 @@
 import {supabase} from '../../supabase/client'
-import { FieldValues } from 'react-hook-form';
+import { userType } from '../types';
 
-export async function createUser(data: FieldValues) {
+export async function createUser(data: userType) {
     const {email, password} =  data;
    try {
     const { data, error} = await supabase.auth.signUp({
