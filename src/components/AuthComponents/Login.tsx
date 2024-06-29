@@ -12,18 +12,18 @@ const Login = () => {
             </div>
             <div>
                 
-                <div className='my-1'>
+                <div className='my-3'>
                     <label className='block capitalize' htmlFor="email">email <sup className='text-red-600'>*</sup></label>
-                    <input className='bg-slate-900 p-2 border border-slate-600 rounded-lg focus:outline-none w-full' type="email" placeholder='email' />
+                    <input className='bg-slate-900 p-2 border border-slate-600 rounded-md focus:outline-none w-full' type="email" placeholder='email' />
                 </div>
-                <div className='my-1'>
+                <div className='my-3'>
                     <label className='block capitalize' htmlFor="password">password <sup className='text-red-600'>*</sup></label>
-                    <input className='bg-slate-900 p-2 border border-slate-600 rounded-lg focus:outline-none w-full' type="password" placeholder='password' />
+                    <input className='bg-slate-900 p-2 border border-slate-600 rounded-md focus:outline-none w-full' type="password" placeholder='password' />
                 </div>
             </div>
             <div className='my-5 w-full'>
-                <button disabled className='p-2 bg-brand rounded-lg capitalize w-full focus:outline-none font-medium' type="submit">login</button>
-                <small className='text-slate-500'>Don't have an account? <Link className='text-secondary font-medium' href={'/'}>signup</Link></small>
+                <button disabled className='p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium' type="submit">login</button>
+                <small className='text-slate-500'>Don't have an account? <Link className='text-secondary font-medium' href={'/signup'}>signup</Link></small>
             </div>
            
         </form>
