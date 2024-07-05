@@ -1,17 +1,18 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { createUser } from "../../utils/request/auth";
 import { userSchema } from "@/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userType } from "@/utils/types";
+import Loader from "../BasicComponents/Loader/Loader";
 
 const CreateAccount: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isLoading },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<userType>({
     resolver: zodResolver(userSchema),
@@ -19,8 +20,8 @@ const CreateAccount: React.FC = () => {
 
   const handleSignUp = async (data: userType) => {
     try {
-      const repsonse = await createUser(data);
-      console.log(data);
+      const response = await createUser(data);
+      console.log(response);
       reset();
     } catch (error) {
       console.log(error);
@@ -78,12 +79,15 @@ const CreateAccount: React.FC = () => {
           </div>
         </div>
         <div className="my-5 w-full">
-          <button
-          disabled={isLoading}
-            className="p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium disabled:bg-slate-500"
-            type="submit"
-          >
-            start collaborating
+          <button className="p-2 bg-brand rounded-md capitalize w-full h-full focus:outline-none font-medium text-center cursor-pointer">
+            {/* <Loader/> */}
+            {isSubmitting ? (
+              <div>
+                <Loader />
+              </div>
+            ) : (
+              <span>start collaborating</span>
+            )}
           </button>
           <small className="text-slate-500">
             Already have an account?{" "}
