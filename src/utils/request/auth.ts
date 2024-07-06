@@ -1,6 +1,7 @@
 import {supabase} from '../../supabase/client'
 import { userType } from '../types';
 import { successToast, errorToast } from '../Toaster/toast';
+import { FieldValues } from 'react-hook-form';
 
 export async function createUser(data: userType) {
     const {email, password} =  data;
