@@ -10,7 +10,7 @@ export async function createUser(data: userType) {
         email: email,
         password: password,
         options:{
-            emailRedirectTo: 'http://localhost:3000'
+            emailRedirectTo: 'http://localhost:3000/verify-email'
         }
     })
     console.log(data, error)

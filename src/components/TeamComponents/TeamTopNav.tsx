@@ -11,7 +11,7 @@ const TeamTopNav = () => {
   return (
     <nav className='flex justify-between p-2 border-b-2 border-slate-800'>
       <div className='flex gap-3 flex-1'>
-        <button onClick={() => {
+        <button className='cursor-pointer' onClick={() => {
           router.push('/');
           // console.log('clicked')
         }}>

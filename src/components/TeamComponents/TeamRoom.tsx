@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import TeamTopNav from "./TeamTopNav";
-import TeamBottomNav from "./TeamBottomNav";
-// import workspace from '/workspace.svg'
+// import workspace from "./workspace-trusted-svgrepo-com.svg"
+// public/workspace-trusted-svgrepo-com.svg
 
 const NewMember = () => {
-  console.log(123);
   return (
     <>
-      {/* <img src={workspace} alt="workspace" className='w-[200px] h-[' /> */}
+    <div className="flex items-center justify-center  h-full w-full">
+      {/* <img src={workspace} alt="workspace" className='w-[200px] h-[200px] object-contain' /> */}
       <p className="text-3xl">Start Collaborating</p>
+      </div>
     </>
   );
 };
