@@ -25,6 +25,66 @@ const AllTeamsDisplay: React.FC = () => {
       teamName: "Agile Team",
       message: "Is everyone done with their task",
     },
+    {
+      teamName: "Developers",
+      message: "I've created a PR",
+    },
+    {
+      teamName: "Designers",
+      message: "I just edited the mobile design on figma and I don't know what to do next",
+    },
+    {
+      teamName: "Agile Team",
+      message: "Is everyone done with their task",
+    },
+    {
+      teamName: "Developers",
+      message: "I've created a PR",
+    },
+    {
+      teamName: "Designers",
+      message: "I just edited the mobile design on figma and I don't know what to do next",
+    },
+    {
+      teamName: "Agile Team",
+      message: "Is everyone done with their task",
+    },
+    {
+      teamName: "Developers",
+      message: "I've created a PR",
+    },
+    {
+      teamName: "Designers",
+      message: "I just edited the mobile design on figma and I don't know what to do next",
+    },
+    {
+      teamName: "Agile Team",
+      message: "Is everyone done with their task",
+    },
+    {
+      teamName: "Developers",
+      message: "I've created a PR",
+    },
+    {
+      teamName: "Designers",
+      message: "I just edited the mobile design on figma and I don't know what to do next",
+    },
+    {
+      teamName: "Agile Team",
+      message: "Is everyone done with their task",
+    },
+    {
+      teamName: "Developers",
+      message: "I've created a PR",
+    },
+    {
+      teamName: "Designers",
+      message: "I just edited the mobile design on figma and I don't know what to do next",
+    },
+    {
+      teamName: "Agile Team",
+      message: "Is everyone done with their task",
+    },
   ];
 
   const handleOpenModal = () => {
@@ -34,7 +94,7 @@ const AllTeamsDisplay: React.FC = () => {
 
   return (
     <>
-      <section className="w-full">
+      <section className="w-full h-full">
         <div>
           {Teams.length ? (
             Teams.map((team, i) => (
@@ -42,10 +102,10 @@ const AllTeamsDisplay: React.FC = () => {
                 key={i}
                 className="flex items-center justify-between gap-2 p-2"
               >
-                <div className="w-[50px] h-[50px] rounded-full object-cover bg-gray-300"></div>
+                <div className="w-[45px] h-[45px] rounded-full object-cover bg-gray-200"></div>
                 <Link href={`/${i}/chat`} className="flex-1 leading-5">
-                  <p className="font-medium text-[18px]">{team.teamName}</p>
-                  <small className="italic text-gray-600">
+                  <p className="font-medium text-[15px]">{team.teamName}</p>
+                  <small className="italic text-gray-400 text-[10px]">
                     {team.message.length > 35 ? `${team.message.substring(0, 35)}...` : team.message}
                   </small>
                 </Link>
@@ -65,7 +125,8 @@ const AllTeamsDisplay: React.FC = () => {
           )}
         </div>
           {/* Create team CTA */}
-        <div className="absolute bottom-3 right-3 bg-brand p-2 rounded-full text-white w-[50px] h-[50px] text-center">
+          
+        <div className="sticky bottom-3 right-0 ml-auto m-2 bg-brand p-2 rounded-full text-white w-[50px] h-[50px] text-center">
           <button onClick={handleOpenModal} className="flex items-center justify-center w-full h-full font-bold">
             <AiOutlineTeam size={40} />
           </button>

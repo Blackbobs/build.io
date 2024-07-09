@@ -9,7 +9,7 @@ export default function Layout() {
   return (
     <main>
         <div className="layout">
-        <div className="w-full md:max-w-[300px]">
+        <div className="w-full md:max-w-[300px] sticky top-0 left-0 max-h-dvh overflow-y-scroll">
           <Sidebar/>
         </div>
 

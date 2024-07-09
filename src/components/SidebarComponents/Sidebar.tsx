@@ -4,11 +4,11 @@ import { Nav } from "../NavComponents";
 
 const Sidebar: React.FC = () => {
   return (
-    <aside className="sticky top-0 left-0 min-h-dvh border-r-4 border-brand">
-      <div>
+    <aside>
+      <div className="sticky top-0 left-0 w-full z-10 bg-gray-900">
         <Nav />
       </div>
-      <div>
+      <div className="w-full min-h-full">
         <AllTeamsDisplay />
       </div>
     </aside>

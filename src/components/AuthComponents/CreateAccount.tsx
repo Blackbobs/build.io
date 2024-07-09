@@ -7,8 +7,11 @@ import { userSchema } from "@/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userType } from "@/utils/types";
 import Loader from "../BasicComponents/Loader/Loader";
+import { useRouter } from "next/navigation";
+import { successToast, errorToast} from "@/utils/Toaster/toast"
 
 const CreateAccount: React.FC = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -21,6 +24,7 @@ const CreateAccount: React.FC = () => {
   const handleSignUp = async (data: userType) => {
     try {
       const response = await createUser(data);
+      router.replace('/verify-email')
       console.log(response);
       reset();
     } catch (error) {

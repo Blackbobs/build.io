@@ -26,10 +26,10 @@ const TeamTopNav = () => {
         </div>
       </div>
       <div className='flex items-center space-x-3'>
-        <button className='text-secondary cursor-pointer'>
+        <button className='text-primary cursor-pointer'>
           <IoIosCall size={30}/>
         </button>
-        <button className='text-secondary cursor-pointer'>
+        <button className='text-primary cursor-pointer'>
           <IoIosVideocam size={30}/>
         </button>
         <button className='cursor-pointer'>

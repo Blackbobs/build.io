@@ -14,7 +14,7 @@ const CreateTeam: React.FC<CreateTeamProps> = ({setIsModalOpen}) => {
     
     <article className='w-full h-full max-w-[500px] flex items-center p-2'>
         <div className='bg-white p-3 rounded-lg h-fit w-full'>
-        <div className='flex items-center justify-between p-3'>
+        <div className='flex items-center justify-between p-3 text-brand'>
             <h1 className='capitalize font-medium text-[22px]'>create a team</h1>
             <button onClick={handleCloseModal}><IoCloseCircleOutline size={35}/></button>
         </div>

@@ -7,12 +7,12 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-      <div className="layout">
-        <div className="w-full md:max-w-[300px] hidden md:block">
+      <div className="layout bg-gray-900 text-primary">
+        <div className="w-full md:max-w-[300px] hidden md:block sticky top-0 left-0 max-h-dvh overflow-y-scroll">
           <Sidebar />
         </div>
         <div className="flex-1 w-full">
-        <div>
+        <div className="sticky top-0 right-0 z-10 bg-gray-900">
             <TeamTopNav />
           </div>
           {children}
