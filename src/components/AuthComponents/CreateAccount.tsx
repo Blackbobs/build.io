@@ -8,10 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { userType } from "@/utils/types";
 import Loader from "../BasicComponents/Loader/Loader";
 import { useRouter } from "next/navigation";
-import { successToast, errorToast} from "@/utils/Toaster/toast"
+import { successToast, errorToast } from "@/utils/Toaster/toast";
 
 const CreateAccount: React.FC = () => {
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
