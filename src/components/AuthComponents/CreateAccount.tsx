@@ -24,7 +24,7 @@ const CreateAccount: React.FC = () => {
   const handleSignUp = async (data: userType) => {
     try {
       const response = await createUser(data);
-      router.replace('/verify-email')
+      // router.replace('/verify-email')
       console.log(response);
       reset();
     } catch (error) {

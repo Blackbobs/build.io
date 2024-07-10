@@ -95,6 +95,13 @@ const AllTeamsDisplay: React.FC = () => {
   return (
     <>
       <section className="w-full h-full">
+        <div className="max-w-full m-3 flex items-center gap-3 p-2 rounded-full border border-slate-800 shadow-sm shadow-slate-800">
+          <button>
+          <IoSearch size={20}/>
+          </button>
+          <label htmlFor="search" className="hidden"></label>
+          <input name="search" id="search" className="bg-transparent border-none focus:outline-none p-0 w-full" type="text" placeholder="Search for teams" />
+        </div>
         <div>
           {Teams.length ? (
             Teams.map((team, i) => (

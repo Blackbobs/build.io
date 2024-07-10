@@ -13,10 +13,11 @@ export async function createUser(data: userType) {
             emailRedirectTo: 'http://localhost:3000/verify-email'
         }
     })
+    successToast('Account Created Successfully')
     console.log(data, error)
     return {data, error}
    } catch (error) {
-    // errorToast(error)
+    errorToast(error)
     console.log(error)
    }
 }
@@ -28,9 +29,11 @@ export async function login(data: userType) {
             email: email,
             password : password,
         })
+        successToast('Login Successful')
         console.log(data, error)
         return{data, error}
     } catch (error) {
+        errorToast(error)
         console.log(error)
     }
 }
@@ -40,8 +43,10 @@ export async function resetPassword(email: string){
         const response = await supabase.auth.resetPasswordForEmail(email, {
             redirectTo: '/update-password'
         })
+        successToast('Reset Code Sent Successfully')
         return response
     } catch (error) {
+        errorToast(error)
         console.log(error)
     }
 } 
@@ -49,8 +54,10 @@ export async function resetPassword(email: string){
 export async function updatePassword(password: string){
     try {
        const response = await supabase.auth.updateUser({password})
+       successToast('Password Updated  Successfully')
        return response
     } catch (error) {
+        errorToast(error)
         console.log(error)
     }
 }
@@ -58,8 +65,10 @@ export async function updatePassword(password: string){
 export async function logout(){
     try {
         const {error} = await supabase.auth.signOut({scope: 'local'})
+        successToast('Logout successful')
         return error
     } catch (error) {
+        errorToast(error)
         console.log(error)
     }
 }
