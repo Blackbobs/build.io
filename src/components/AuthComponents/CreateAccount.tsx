@@ -2,16 +2,17 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import {useRouter} from 'next/navigation'
 import { createUser } from "../../utils/request/auth";
 import { userSchema } from "@/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userType } from "@/utils/types";
 import Loader from "../BasicComponents/Loader/Loader";
-import { successToast, errorToast } from "@/utils/Toaster/toast";
-import CheckEmail from "./CheckEmail";
+// import { successToast, errorToast } from "@/utils/Toaster/toast";
+
 
 const CreateAccount: React.FC = () => {
-  const [checkEmail, setCheckEmail] = useState(false);
+  const router = useRouter()
 
   const {
     register,
@@ -25,9 +26,9 @@ const CreateAccount: React.FC = () => {
   const handleSignUp = async (data: userType) => {
     try {
       const response = await createUser(data);
-      setCheckEmail(true);
       console.log(response);
       reset();
+      router.replace('/')
     } catch (error) {
       console.log(error);
     }
@@ -111,11 +112,6 @@ const CreateAccount: React.FC = () => {
         </div>
       </form>
 
-      {checkEmail && (
-        <div className="absolute bg_overlay flex items-center justify-center">
-          <CheckEmail />
-        </div>
-      )}
     </section>
   );
 };

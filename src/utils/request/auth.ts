@@ -3,6 +3,8 @@ import { userType } from "../types";
 import { successToast, errorToast } from "../Toaster/toast";
 import { FieldValues } from "react-hook-form";
 
+// sb-upfolnilgpezclmgwdmi-auth-token
+
 export async function createUser(data: userType) {
   const { username, email, password } = data;
   try {
@@ -16,7 +18,11 @@ export async function createUser(data: userType) {
         },
       },
     });
-    successToast("Account Created Successfully");
+    if(data){
+      localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
+      localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
+      successToast("Account Created Successfully");
+    }
     console.log(data, error);
     return { data, error };
   } catch (error) {
@@ -70,6 +76,18 @@ export async function logout() {
     const { error } = await supabase.auth.signOut({ scope: "local" });
     successToast("Logout successful");
     return error;
+  } catch (error) {
+    errorToast(error);
+    console.log(error);
+  }
+}
+
+export async function getCurrentLoggedInUser() {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    return user;
   } catch (error) {
     errorToast(error);
     console.log(error);
