@@ -7,11 +7,12 @@ import { userSchema } from "@/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userType } from "@/utils/types";
 import Loader from "../BasicComponents/Loader/Loader";
-import { useRouter } from "next/navigation";
 import { successToast, errorToast } from "@/utils/Toaster/toast";
+import CheckEmail from "./CheckEmail";
 
 const CreateAccount: React.FC = () => {
-  const router = useRouter();
+  const [checkEmail, setCheckEmail] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -24,7 +25,7 @@ const CreateAccount: React.FC = () => {
   const handleSignUp = async (data: userType) => {
     try {
       const response = await createUser(data);
-      // router.replace('/verify-email')
+      setCheckEmail(true);
       console.log(response);
       reset();
     } catch (error) {
@@ -45,10 +46,6 @@ const CreateAccount: React.FC = () => {
           </small>
         </div>
         <div>
-          {/* <div className='my-3'>
-                    <label className='block capitalize' htmlFor="username">username <sup className='text-red-600'>*</sup> </label>
-                    <input className='bg-slate-900 p-2 border border-slate-600 rounded-md focus:outline-none w-full' type="text" placeholder='username' />
-                </div> */}
           <div className="my-3">
             <label className="block capitalize" htmlFor="email">
               email <sup className="text-red-600">*</sup>
@@ -65,6 +62,7 @@ const CreateAccount: React.FC = () => {
               )}
             </div>
           </div>
+
           <div className="my-3">
             <label className="block capitalize" htmlFor="password">
               password <sup className="text-red-600">*</sup>
@@ -80,6 +78,17 @@ const CreateAccount: React.FC = () => {
                 <small className="text-red-500">{`${errors.password.message}`}</small>
               )}
             </div>
+          </div>
+          <div className="my-3">
+            <label className="block capitalize" htmlFor="username">
+              username <sup className="text-red-600">*</sup>{" "}
+            </label>
+            <input
+              {...register("username")}
+              className="bg-slate-900 p-2 border border-slate-600 rounded-md focus:outline-none w-full"
+              type="text"
+              placeholder="username"
+            />
           </div>
         </div>
         <div className="my-5 w-full">
@@ -101,6 +110,12 @@ const CreateAccount: React.FC = () => {
           </small>
         </div>
       </form>
+
+      {checkEmail && (
+        <div className="absolute bg_overlay flex items-center justify-center">
+          <CheckEmail />
+        </div>
+      )}
     </section>
   );
 };

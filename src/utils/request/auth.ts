@@ -4,13 +4,16 @@ import { successToast, errorToast } from "../Toaster/toast";
 import { FieldValues } from "react-hook-form";
 
 export async function createUser(data: userType) {
-  const { email, password } = data;
+  const { username, email, password } = data;
   try {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
       options: {
-        emailRedirectTo: "http://localhost:3000/verify-email",
+        emailRedirectTo: "http://localhost:3000",
+        data: {
+          username: username,
+        },
       },
     });
     successToast("Account Created Successfully");
