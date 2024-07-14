@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoCloseCircleOutline, IoCameraOutline } from "react-icons/io5";
 import { AiOutlineTeam } from "react-icons/ai";
+import Image from 'next/image';
 
 interface CreateTeamProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -19,7 +20,7 @@ const CreateTeam: React.FC<CreateTeamProps> = ({setIsModalOpen}) => {
             <button onClick={handleCloseModal}><IoCloseCircleOutline size={35}/></button>
         </div>
         <div className='flex items-center justify-center m-2 flex-col'>
-            <img src='' alt="team-logo" className='w-[150px] h-[150px] rounded-full bg-gray-100' />
+            <Image src='' priority alt="team-logo" className='w-[150px] h-[150px] rounded-full bg-gray-100' />
             <button className='flex items-center justify-center gap-3 capitalize font-medium text-[18px] p-2 text-primary border border-brand rounded-md my-2'><IoCameraOutline size={30}/> <span>upload team logo</span> </button>
         </div>
         <div>

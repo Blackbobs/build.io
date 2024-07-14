@@ -90,7 +90,7 @@ const Login: React.FC = () => {
             )}
           </button>
           <small className="text-slate-500">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link className="text-secondary font-medium" href={"/signup"}>
               signup
             </Link>

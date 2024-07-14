@@ -1,6 +1,6 @@
 import { VerifyEmail } from "@/components/AuthComponents";
 
-export default function () {
+export default function page() {
   return (
     <>
       <div className="w-full h-screen bg-slate-800 overflow-hidden">
