@@ -7,8 +7,10 @@ import { userType } from "@/utils/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import Loader from "../BasicComponents/Loader/Loader";
+import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -23,6 +25,7 @@ const Login: React.FC = () => {
       const response = await login(data);
       console.log(response);
       reset();
+      router.replace('/')
     } catch (error) {
       console.log(error);
     }
@@ -72,6 +75,9 @@ const Login: React.FC = () => {
                 <small className="text-red-500">{`${errors.password.message}`}</small>
               )}
             </div>
+            <small>
+              <Link className="text-primary mx-2 my-4" href={'/forgot-password'}>forgot password?</Link>
+            </small>
           </div>
         </div>
         <div className="my-5 w-full">
@@ -91,7 +97,7 @@ const Login: React.FC = () => {
           </button>
           <small className="text-slate-500">
             Don&apos;t have an account?{" "}
-            <Link className="text-secondary font-medium" href={"/signup"}>
+            <Link className="text-secondary font-medium my-3" href={"/signup"}>
               signup
             </Link>
           </small>

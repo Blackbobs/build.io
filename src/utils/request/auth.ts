@@ -38,7 +38,12 @@ export async function login(data: userType) {
       email: email,
       password: password,
     });
-    successToast("Login Successful");
+    if(data){
+      localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
+      localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
+      successToast("Login Successful");
+    }
+    
     console.log(data, error);
     return { data, error };
   } catch (error) {
