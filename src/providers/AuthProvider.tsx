@@ -22,6 +22,9 @@ const AuthProvider = ({children}: PropsWithChildren) => {
         else if(pathExistsInUrl("/login")){
             router.push("/")
         }
+        else if(pathExistsInUrl("/signup")){
+            router.push("/")
+        }
         setUpdated(true)
     }, [])
 
