@@ -2,6 +2,7 @@ import { supabase } from "../../supabase/client";
 import { userType } from "../types";
 import { successToast, errorToast } from "../Toaster/toast";
 import { FieldValues } from "react-hook-form";
+import errorMap from "zod/locales/en.js";
 
 // sb-upfolnilgpezclmgwdmi-auth-token
 
@@ -18,10 +19,15 @@ export async function createUser(data: userType) {
         },
       },
     });
-    if(data){
+    if(error){
+      errorToast(error.message)
+      return
+    }
+    if(data && !error){
       localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
       localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
       successToast("Account Created Successfully");
+      return
     }
     console.log(data, error);
     return { data, error };

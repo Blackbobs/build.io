@@ -10,7 +10,7 @@ import Loader from "../BasicComponents/Loader/Loader";
 import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,10 +22,11 @@ const Login: React.FC = () => {
 
   const handleLogin = async (data: userType) => {
     try {
+      console.log(123)
       const response = await login(data);
       console.log(response);
       reset();
-      router.replace('/')
+      router.replace("/");
     } catch (error) {
       console.log(error);
     }
@@ -76,16 +77,17 @@ const Login: React.FC = () => {
               )}
             </div>
             <small>
-              <Link className="text-primary mx-2 my-4" href={'/forgot-password'}>forgot password?</Link>
+              <Link
+                className="text-primary mx-2 my-5"
+                href={"/forgot-password"}
+              >
+                forgot password?
+              </Link>
             </small>
           </div>
         </div>
         <div className="my-5 w-full">
-          <button
-            disabled
-            className="p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium"
-            type="submit"
-          >
+          <button className="p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium text-center cursor-pointer">
             {" "}
             {isSubmitting ? (
               <div>
@@ -95,7 +97,7 @@ const Login: React.FC = () => {
               <span>login</span>
             )}
           </button>
-          <small className="text-slate-500">
+          <small className="text-slate-500 my-5">
             Don&apos;t have an account?{" "}
             <Link className="text-secondary font-medium my-3" href={"/signup"}>
               signup

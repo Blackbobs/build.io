@@ -28,7 +28,7 @@ const CreateAccount: React.FC = () => {
       const response = await createUser(data);
       console.log(response);
       reset();
-      router.replace('/')
+      // router.replace('/')
     } catch (error) {
       console.log(error);
     }
@@ -103,7 +103,7 @@ const CreateAccount: React.FC = () => {
               <span>start collaborating</span>
             )}
           </button>
-          <small className="text-slate-500">
+          <small className="text-slate-500 my-5">
             Already have an account?{" "}
             <Link className="text-secondary font-medium" href={"/login"}>
               login
