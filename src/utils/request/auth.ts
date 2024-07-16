@@ -4,7 +4,6 @@ import { successToast, errorToast } from "../Toaster/toast";
 import { FieldValues } from "react-hook-form";
 import { redirect } from "next/navigation";
 
-
 // sb-upfolnilgpezclmgwdmi-auth-token
 
 export async function createUser(data: userType) {
@@ -19,17 +18,17 @@ export async function createUser(data: userType) {
         },
       },
     });
-    if(error){
-      errorToast(error.message)
-      return
+    if (error) {
+      errorToast(error.message);
+      return;
     }
-    if(data && !error){
+    if (data && !error) {
       // localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
       // localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
       successToast("Account Created Successfully");
       // redirect('/')
     }
-    console.log(data, error);
+    // console.log(data, error);
     return { data, error };
   } catch (error) {
     errorToast(error);
@@ -44,18 +43,18 @@ export async function login(data: userType) {
       email: email,
       password: password,
     });
-    if(error){
-      errorToast(error.message)
-      return
+    if (error) {
+      errorToast(error.message);
+      return;
     }
-    if(data && !error){
+    if (data && !error) {
       // localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
       // localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
       successToast("Login Successful");
       // redirect('/')
     }
-    
-    console.log(data, error);
+
+    // console.log(data, error);
     return { data, error };
   } catch (error) {
     errorToast(error);
@@ -65,18 +64,18 @@ export async function login(data: userType) {
 
 export async function resetPassword(email: string) {
   try {
-    const {data,error} = await supabase.auth.resetPasswordForEmail(email, {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:3000/update-password",
     });
-    if(error){
-      errorToast(error.message)
-      return
+    if (error) {
+      errorToast(error.message);
+      return;
     }
-    if(data){
+    if (data) {
       successToast("Reset Code Sent Successfully");
-      console.log(data)
+      console.log(data);
     }
-    return {data, error};
+    return { data, error };
   } catch (error) {
     errorToast(error);
     console.log(error);

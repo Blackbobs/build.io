@@ -29,6 +29,7 @@ const CreateAccount: React.FC = () => {
       console.log(response);
       reset();
       if(response?.data?.user){
+        // router.refresh()
         router.replace('/')
       }
     } catch (error) {

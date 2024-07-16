@@ -5,14 +5,15 @@ import React, { useEffect, useState, PropsWithChildren } from "react";
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
   const [show, setShow] = useState(false);
-  const [token, setToken] = useState<string | null>(null); 
-
+  const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const fetchToken = async () => {
       try {
-        const response = localStorage.getItem("sb-upfolnilgpezclmgwdmi-auth-token");
+        const response = localStorage.getItem(
+          "sb-upfolnilgpezclmgwdmi-auth-token"
+        );
 
         if (response) {
           const parsedResponse = JSON.parse(response);
@@ -22,7 +23,9 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
             console.error("Invalid token format:", parsedResponse);
           }
         } else {
-          console.log("No item found in localStorage for sb-upfolnilgpezclmgwdmi-auth-token");
+          console.log(
+            "No item found in localStorage for sb-upfolnilgpezclmgwdmi-auth-token"
+          );
         }
       } catch (error) {
         console.error("Error parsing JSON or fetching token:", error);
@@ -30,30 +33,33 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     };
 
     fetchToken();
-  }, []); 
+  }, []);
 
   useEffect(() => {
     let route = window.location.pathname;
     if (token !== null) {
-
-
       if (token && route === "/login") {
         router.replace("/");
-      } 
+      }
       // else if (!token && route === "/") {
       //   router.replace("/login");
       //   errorToast("You're not Authorized");
       // }
-       else if (token && (route === "/forgot-password" || route === "/update-password" || route === "/signup")) {
+      else if (
+        token &&
+        (route === "/forgot-password" ||
+          route === "/update-password" ||
+          route === "/signup")
+      ) {
         router.replace("/");
       } else {
         setShow(true);
       }
-    }else if(!token && route === "/"){
+    } else if (!token && route === "/") {
       router.replace("/login");
       errorToast("You're not Authorized");
     }
-  }, [token]); 
+  }, [token]);
 
   return <>{children}</>;
 };
