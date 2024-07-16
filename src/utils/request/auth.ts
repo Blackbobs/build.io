@@ -65,11 +65,18 @@ export async function login(data: userType) {
 
 export async function resetPassword(email: string) {
   try {
-    const response = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "/update-password",
+    const {data,error} = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "http://localhost:3000/update-password",
     });
-    successToast("Reset Code Sent Successfully");
-    return response;
+    if(error){
+      errorToast(error.message)
+      return
+    }
+    if(data){
+      successToast("Reset Code Sent Successfully");
+      console.log(data)
+    }
+    return {data, error};
   } catch (error) {
     errorToast(error);
     console.log(error);

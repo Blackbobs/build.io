@@ -5,7 +5,7 @@ import React, { useEffect, useState, PropsWithChildren } from "react";
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
   const [show, setShow] = useState(false);
-  const [token, setToken] = useState<string | null>(null); // Initialize token state
+  const [token, setToken] = useState<string | null>(null); 
 
   const router = useRouter();
 
@@ -30,11 +30,11 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     };
 
     fetchToken();
-  }, []); // Run once on component mount to fetch token
+  }, []); 
 
   useEffect(() => {
     if (token !== null) {
-      // Token is available, perform routing or other actions
+
       let route = window.location.pathname;
 
       if (token && route === "/login") {
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
         setShow(true);
       }
     }
-  }, [token]); // Re-run whenever token changes
+  }, [token]); 
 
   return <>{children}</>;
 };
