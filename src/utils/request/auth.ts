@@ -2,7 +2,8 @@ import { supabase } from "../../supabase/client";
 import { userType } from "../types";
 import { successToast, errorToast } from "../Toaster/toast";
 import { FieldValues } from "react-hook-form";
-import errorMap from "zod/locales/en.js";
+import { redirect } from "next/navigation";
+
 
 // sb-upfolnilgpezclmgwdmi-auth-token
 
@@ -13,7 +14,6 @@ export async function createUser(data: userType) {
       email: email,
       password: password,
       options: {
-        emailRedirectTo: "http://localhost:3000",
         data: {
           username: username,
         },
@@ -24,10 +24,10 @@ export async function createUser(data: userType) {
       return
     }
     if(data && !error){
-      localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
-      localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
+      // localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
+      // localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
       successToast("Account Created Successfully");
-      return
+      // redirect('/')
     }
     console.log(data, error);
     return { data, error };
@@ -44,10 +44,15 @@ export async function login(data: userType) {
       email: email,
       password: password,
     });
-    if(data){
-      localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
-      localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
+    if(error){
+      errorToast(error.message)
+      return
+    }
+    if(data && !error){
+      // localStorage.setItem("token", JSON.stringify(data?.session?.access_token))
+      // localStorage.setItem("user", JSON.stringify(data?.user?.user_metadata))
       successToast("Login Successful");
+      // redirect('/')
     }
     
     console.log(data, error);

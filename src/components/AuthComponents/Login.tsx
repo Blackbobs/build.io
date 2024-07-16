@@ -26,7 +26,9 @@ const Login: React.FC = () => {
       const response = await login(data);
       console.log(response);
       reset();
-      router.replace("/");
+      if(response?.data?.user){
+        router.replace('/')
+      }
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +89,7 @@ const Login: React.FC = () => {
           </div>
         </div>
         <div className="my-5 w-full">
-          <button className="p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium text-center cursor-pointer">
+          <button type="submit" className="p-2 bg-brand rounded-md capitalize w-full focus:outline-none font-medium text-center cursor-pointer">
             {" "}
             {isSubmitting ? (
               <div>
