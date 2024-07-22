@@ -47,7 +47,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       const userDetails = await getCurrentLoggedInUser();
       if (userDetails) {
         setUser(userDetails);
-        console.log(userDetails)
+        // console.log(userDetails)
       } else {
         console.error("Invalid user data:", userDetails);
       }
