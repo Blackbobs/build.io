@@ -109,6 +109,7 @@ export async function getCurrentLoggedInUser() {
     const {
       data: { user },
     } = await supabase.auth.getUser();
+    console.log(user)
     return user;
   } catch (error) {
     errorToast(error);
