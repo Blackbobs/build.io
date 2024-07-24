@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-// import workspace from "./workspace-trusted-svgrepo-com.svg"
+import Image from "next/image";
+// import workspace from "/workspace-trusted-svgrepo-com.svg"
 // public/workspace-trusted-svgrepo-com.svg
 
 const NewMember = () => {
   return (
     <>
     <div className="flex items-center justify-center  h-full w-full">
-      {/* <img src={workspace} alt="workspace" className='w-[200px] h-[200px] object-contain' /> */}
+      {/* <Image src={workspace} alt="workspace" className='w-[200px] h-[200px] object-contain' /> */}
       <p className="text-3xl">Start Collaborating</p>
       </div>
     </>
